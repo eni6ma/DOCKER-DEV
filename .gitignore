@@ -1,0 +1,28 @@
+# Workspace
+workspace/
+
+# Environment files
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+
+# Build artifacts
+target/
+dist/
+build/
+node_modules/
+__pycache__/
+*.pyc
+

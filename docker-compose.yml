@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  dev-environment:
+    image: dev-environment:latest
+    container_name: dev-env
+    volumes:
+      # Mount your workspace
+      - ./workspace:/home/developer/workspace
+      # Mount SSH keys for git operations
+      - ~/.ssh:/home/developer/.ssh:ro
+      # Mount Git config
+      - ~/.gitconfig:/home/developer/.gitconfig:ro
+      # Mount AWS credentials (if needed)
+      - ~/.aws:/home/developer/.aws:ro
+      # Mount GPG keys (if needed)
+      - ~/.gnupg:/home/developer/.gnupg:ro
+    environment:
+      - TERM=xterm-256color
+      # Add any custom environment variables
+    stdin_open: true
+    tty: true
+    # Optionally expose ports for web servers
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+      - "8000:8000"
+    # Keep container running
+    command: /bin/bash
+
